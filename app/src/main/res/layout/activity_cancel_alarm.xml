@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".cancel_alarm"
+    android:background="@color/grey">
+
+    <ImageView
+        android:id="@+id/ca_sign_in_app_icon"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintWidth_percent="0.37"
+        app:layout_constraintHeight_percent="0.15"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/cuilinio_txt"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/order_complete_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/order_ready"
+        app:layout_constraintTop_toBottomOf="@+id/ca_sign_in_app_icon"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="10dp"/>
+
+
+    <TextView
+        android:id="@+id/ca_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Your food is ready!"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/order_complete_txt"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:fontFamily="@font/montserrat_regular"
+        android:textSize="30sp"
+        android:textStyle="bold|italic"
+        android:layout_marginTop="40dp"/>
+
+    <Button
+        android:id="@+id/stop_btn"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent="0.07"
+        app:layout_constraintWidth_percent="0.70"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:fontFamily="@font/montserrat_bold"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ca_text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@drawable/signin_btn"
+        android:text="Dismiss"
+        android:textSize="25sp"
+        android:textColor="@color/black"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

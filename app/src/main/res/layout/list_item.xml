@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:paddingTop="10dp"
+    android:background="@color/main_edit"
+    android:layout_marginTop="10dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/constraint_2"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
+        fresco:layout_constraintEnd_toEndOf="parent"
+        fresco:layout_constraintStart_toStartOf="parent"
+        fresco:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/row_view_image"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/grey"
+            fresco:layout_constraintBottom_toBottomOf="@+id/constraint_2"
+            fresco:layout_constraintHeight_percent="0.90"
+            fresco:layout_constraintStart_toStartOf="@+id/constraint_2"
+            fresco:layout_constraintTop_toTopOf="@+id/constraint_2"
+            fresco:layout_constraintWidth_percent="0.31"
+            android:layout_marginLeft="10dp" />
+
+        <TextView
+            android:id="@+id/row_view_prod_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/montserrat_regular"
+            android:background="@color/grey"
+            android:textSize="20sp"
+            android:paddingLeft="10dp"
+            android:textColor="@color/white"
+            fresco:layout_constraintHeight_percent="0.20"
+            fresco:layout_constraintWidth_percent="0.50"            fresco:layout_constraintEnd_toStartOf="@+id/checkbox"
+            fresco:layout_constraintStart_toEndOf="@+id/row_view_image"
+            fresco:layout_constraintTop_toTopOf="@+id/row_view_image" />
+
+        <TextView
+            android:id="@+id/row_view_price"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_regular"
+            fresco:layout_constraintHeight_percent="0.20"
+            fresco:layout_constraintWidth_percent="0.50"
+            android:textColor="@color/white"
+            android:paddingLeft="10dp"
+            android:background="@color/grey"
+            android:textSize="20sp"
+            fresco:layout_constraintEnd_toStartOf="@+id/checkbox"
+            fresco:layout_constraintTop_toBottomOf="@+id/row_view_prod_name"
+            fresco:layout_constraintStart_toEndOf="@+id/row_view_image"
+            fresco:layout_constraintBottom_toTopOf="@+id/row_view_address"
+            />
+
+        <TextView
+            android:id="@+id/row_view_address"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/grey"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/montserrat_regular"
+            android:paddingLeft="10dp"
+            fresco:layout_constraintHeight_percent="0.20"
+            fresco:layout_constraintWidth_percent="0.50"
+            fresco:layout_constraintEnd_toStartOf="@+id/checkbox"
+            fresco:layout_constraintStart_toEndOf="@+id/row_view_image"
+            fresco:layout_constraintTop_toBottomOf="@+id/row_view_price"
+            fresco:layout_constraintBottom_toBottomOf="@+id/row_view_image"/>
+
+    <CheckBox
+        android:id="@+id/checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        fresco:layout_constraintRight_toRightOf="parent"
+        fresco:layout_constraintTop_toTopOf="parent"
+        android:scaleX="1.50"
+        android:scaleY="1.50"
+        android:layout_marginRight="10dp"
+        fresco:layout_constraintBottom_toBottomOf="parent"
+        android:buttonTint="@color/white"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</RelativeLayout>

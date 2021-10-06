@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".employee_menu"
+    android:background="@color/grey">
+
+    <ImageView
+        android:src="@drawable/cuilinio_txt"
+        android:id="@+id/em_menu"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintWidth_percent="0.33"
+        app:layout_constraintHeight_percent="0.07"
+        android:layout_marginTop="5dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <ImageButton
+        android:id="@+id/me_cup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/tea_cup"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/em_menu"
+        app:layout_constraintBottom_toTopOf="@+id/em_scroll_view"
+        android:background="@drawable/cup_design"
+        android:padding="5dp"
+        android:layout_marginRight="5dp"
+        android:backgroundTint="@color/sign_in_vtn_color"/>
+
+    <ImageButton
+        android:id="@+id/em_refresh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_baseline_refresh_24"
+        android:background="@color/grey"
+        app:layout_constraintTop_toTopOf="@+id/em_menu"
+        app:layout_constraintBottom_toBottomOf="@+id/em_menu"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="10dp"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        android:id="@+id/em_scroll_view"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/em_menu"
+        app:layout_constraintVertical_bias="1.0">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/op_conslayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/me_breakfast_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:padding="5dp"
+                android:fontFamily="@font/montserrat_bold"
+                android:textColor="@color/white"
+                android:text="Breakfast"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/grey"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/me_breakfast_txt"
+                android:id="@+id/shimmer_layout"
+                android:visibility="visible">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintTop_toBottomOf="@+id/me_breakfast_txt"
+                    app:layout_constraintBottom_toTopOf="@+id/me_lunch_txt"
+                    android:id="@+id/home_linear">
+
+                    <include layout="@layout/activity_blayout_listitem"/>
+                    <include layout="@layout/activity_blayout_listitem"/>
+                    <include layout="@layout/activity_blayout_listitem"/>
+                    <include layout="@layout/activity_blayout_listitem"/>
+                    <include layout="@layout/activity_blayout_listitem"/>
+                    <include layout="@layout/activity_blayout_listitem"/>
+                    <include layout="@layout/activity_blayout_listitem"/>
+                    <include layout="@layout/activity_blayout_listitem"/>
+                    <include layout="@layout/activity_blayout_listitem"/>
+
+                </LinearLayout>
+            </com.facebook.shimmer.ShimmerFrameLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/me_recycler_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/me_breakfast_txt">
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+            <TextView
+                android:id="@+id/me_lunch_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:textColor="@color/white"
+                android:padding="5dp"
+                android:text="Lunch"
+                android:fontFamily="@font/montserrat_bold"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/shimmer_layout" />
+
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/grey"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/me_lunch_txt"
+                android:id="@+id/lunch_shimmer_layout"
+                android:visibility="visible">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintTop_toBottomOf="@+id/me_lunch_txt"
+                    app:layout_constraintBottom_toTopOf="@+id/me_dinner_txt"
+                    android:id="@+id/lunch_home_linear">
+
+                    <include layout="@layout/activity_blayout_listitem"/>
+                    <include layout="@layout/activity_blayout_listitem"/>
+                    <include layout="@layout/activity_blayout_listitem"/>
+                    <include layout="@layout/activity_blayout_listitem"/>
+                    <include layout="@layout/activity_blayout_listitem"/>
+                    <include layout="@layout/activity_blayout_listitem"/>
+                    <include layout="@layout/activity_blayout_listitem"/>
+                    <include layout="@layout/activity_blayout_listitem"/>
+                    <include layout="@layout/activity_blayout_listitem"/>
+
+                </LinearLayout>
+            </com.facebook.shimmer.ShimmerFrameLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/me_lunch_recycler_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/me_lunch_txt">
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+
+            <TextView
+                android:id="@+id/me_dinner_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:padding="5dp"
+                android:fontFamily="@font/montserrat_bold"
+                android:text="Dinner"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lunch_shimmer_layout" />
+
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/grey"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/me_dinner_txt"
+                android:id="@+id/dinner_shimmer_layout"
+                android:visibility="visible">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintTop_toBottomOf="@+id/me_dinner_txt"
+                    app:layout_constraintBottom_toTopOf="@+id/me_beverage_txt"
+                    android:id="@+id/dinner_home_linear">
+
+                    <include layout="@layout/activity_blayout_listitem"/>
+                    <include layout="@layout/activity_blayout_listitem"/>
+                    <include layout="@layout/activity_blayout_listitem"/>
+                    <include layout="@layout/activity_blayout_listitem"/>
+                    <include layout="@layout/activity_blayout_listitem"/>
+                    <include layout="@layout/activity_blayout_listitem"/>
+                    <include layout="@layout/activity_blayout_listitem"/>
+                    <include layout="@layout/activity_blayout_listitem"/>
+                    <include layout="@layout/activity_blayout_listitem"/>
+
+                </LinearLayout>
+            </com.facebook.shimmer.ShimmerFrameLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/me_dinner_recycler_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/me_dinner_txt">
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+            <TextView
+                android:id="@+id/me_beverage_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:padding="5dp"
+                android:textColor="@color/white"
+                android:text="Beverage, Snacks"
+                android:textSize="25sp"
+                android:fontFamily="@font/montserrat_bold"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dinner_shimmer_layout" />
+
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/grey"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/me_beverage_txt"
+                android:id="@+id/beverage_shimmer_layout"
+                android:visibility="visible">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:id="@+id/beverage_home_linear"
+                    app:layout_constraintTop_toBottomOf="@+id/me_beverage_txt"
+                    app:layout_constraintBottom_toBottomOf="parent">
+
+                    <include layout="@layout/activity_blayout_listitem"/>
+                    <include layout="@layout/activity_blayout_listitem"/>
+                    <include layout="@layout/activity_blayout_listitem"/>
+                    <include layout="@layout/activity_blayout_listitem"/>
+                    <include layout="@layout/activity_blayout_listitem"/>
+                    <include layout="@layout/activity_blayout_listitem"/>
+                    <include layout="@layout/activity_blayout_listitem"/>
+                    <include layout="@layout/activity_blayout_listitem"/>
+                    <include layout="@layout/activity_blayout_listitem"/>
+
+                </LinearLayout>
+            </com.facebook.shimmer.ShimmerFrameLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/me_beverage_recycler_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/me_beverage_txt">
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

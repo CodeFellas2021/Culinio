@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.cibo">
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <application
+    android:allowBackup="true"
+        android:icon="@mipmap/culinio_icon"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/culinio_icon"
+        android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
+        android:theme="@style/Theme.Cibo">
+        <activity android:name="com.example.cibo.chef_screen"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+        <activity android:name="com.example.cibo.chef_login" />
+        <activity android:name="com.example.cibo.employee_orders" />
+        <activity android:name="com.example.cibo.cancel_alarm" >
+            <intent-filter>
+                <action android:name="android.intent.action.OPEN_ACTIVITY_1" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.example.cibo.emp_order" />
+        <activity android:name="com.example.cibo.employee_menu" />
+        <activity android:name="com.example.cibo.add_chef" />
+        <activity android:name="com.example.cibo.chef_list_item" />
+        <activity android:name="com.example.cibo.chef_details" />
+        <activity android:name="com.example.cibo.add_to_menu" />
+        <activity android:name="com.example.cibo.menu_expand" />
+        <activity android:name="com.example.cibo.b_layout_listitem" />
+        <activity android:name="com.example.cibo.organization_profile" />
+        <activity android:name="com.example.cibo.orga_sign_in" />
+        <activity android:name="com.example.cibo.register" />
+        <activity android:name="com.example.cibo.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name="com.example.cibo.PuchNotificationService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <receiver
+            android:name="com.example.cibo.MyBroadcastReceiver"
+            android:exported="false" >
+        </receiver>
+        <receiver android:name="com.example.cibo.alarmreceiver" />
+        <service android:name="com.example.cibo.sound_service"/>
+    </application>
+
+</manifest>

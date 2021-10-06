@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1055064778266",
+    "project_id": "cibo-47d2b",
+    "storage_bucket": "cibo-47d2b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1055064778266:android:bd5ed759c193c86c2493a3",
+        "android_client_info": {
+          "package_name": "com.example.cibo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1055064778266-3j767ms1i2ot1ft42e4hab254u0i9l83.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cibo",
+            "certificate_hash": "fb548773ec8516fb30335ec99a5d1d5a29c7c00f"
+          }
+        },
+        {
+          "client_id": "1055064778266-dat510h2820t88tfgutfjna6t0j71eja.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBtCvMvIz2daw2oCzoMpUWtJLdmxQe-9Wc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1055064778266-dat510h2820t88tfgutfjna6t0j71eja.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

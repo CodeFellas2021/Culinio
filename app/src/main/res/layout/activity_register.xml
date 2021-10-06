@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".register"
+    android:background="@color/grey">
+
+    <RelativeLayout
+        android:id="@+id/ar_relative"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:translationZ="2dp"
+        android:elevation="10dp"
+        android:visibility="invisible">
+
+    <ProgressBar
+        android:id="@+id/ar_progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:padding="10dp"
+        android:translationZ="2dp"
+        android:elevation="10dp"
+        android:background="@color/grey"
+        android:visibility="invisible"
+        android:indeterminateTint="@color/sign_in_vtn_color"/>
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/reg_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="REGISTER"
+        android:fontFamily="@font/montserrat_bold"
+        android:textColor="@color/white"
+        android:layout_marginTop="15dp"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <ImageView
+        android:id="@+id/reg_app_icon"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:elevation="10dp"
+        app:layout_constraintHeight_percent="0.30"
+        app:layout_constraintWidth_percent="0.50"
+        android:layout_marginTop="10dp"
+        android:src="@mipmap/culinio_icon"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reg_text" />
+
+
+    <EditText
+        android:id="@+id/register_orga_name"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:elevation="10dp"
+        app:layout_constraintHeight_percent="0.06"
+        android:textColor="@color/white"
+        android:paddingLeft="10dp"
+        android:textColorHint="@color/black"
+        android:fontFamily="@font/montserrat_regular"
+        android:hint="Organization Name"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:background="@drawable/edittext_design"
+        app:layout_constraintTop_toBottomOf="@+id/reg_app_icon"/>
+
+    <EditText
+        android:id="@+id/register_orga_email"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:textColor="@color/white"
+        android:elevation="10dp"
+        android:textColorHint="@color/black"
+        android:fontFamily="@font/montserrat_regular"
+        app:layout_constraintHeight_percent="0.06"
+        android:hint="Organization Email"
+        android:paddingLeft="10dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:background="@drawable/edittext_design"
+        app:layout_constraintTop_toBottomOf="@+id/register_orga_name"/>
+
+    <EditText
+        android:id="@+id/register_orga_branch"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/black"
+        android:fontFamily="@font/montserrat_regular"
+        android:elevation="10dp"
+        app:layout_constraintHeight_percent="0.06"
+        android:hint="Organization Branch"
+        android:layout_marginTop="30dp"
+        android:paddingLeft="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:background="@drawable/edittext_design"
+        app:layout_constraintTop_toBottomOf="@+id/register_orga_email"/>
+
+    <EditText
+        android:id="@+id/register_orga_password"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent="0.06"
+        android:hint="Password"
+        android:textColor="@color/white"
+        android:elevation="10dp"
+        android:textColorHint="@color/black"
+        android:fontFamily="@font/montserrat_regular"
+        android:layout_marginTop="30dp"
+        android:paddingLeft="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:background="@drawable/edittext_design"
+        app:layout_constraintTop_toBottomOf="@+id/register_orga_branch"/>
+
+    <Button
+        android:id="@+id/register_register_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/signin_btn"
+        android:text="Register"
+        android:textSize="17sp"
+        android:fontFamily="@font/montserrat_bold"
+        android:layout_marginLeft="90dp"
+        android:layout_marginRight="90dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/register_orga_password" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

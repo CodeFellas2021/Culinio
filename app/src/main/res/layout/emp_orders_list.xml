@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:paddingTop="10dp"
+    android:background="@drawable/edittext_design"
+    android:paddingBottom="10dp"
+    android:layout_marginBottom="10dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/constraint_2"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
+        fresco:layout_constraintEnd_toEndOf="parent"
+        fresco:layout_constraintStart_toStartOf="parent"
+        fresco:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/row_view_image"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/grey"
+            fresco:layout_constraintBottom_toBottomOf="@+id/constraint_2"
+            fresco:layout_constraintHeight_percent="0.90"
+            fresco:layout_constraintStart_toStartOf="@+id/constraint_2"
+            fresco:layout_constraintTop_toTopOf="@+id/constraint_2"
+            fresco:layout_constraintWidth_percent="0.31"
+            android:layout_marginLeft="10dp" />
+
+        <View
+            android:id="@+id/emp_divider"
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            fresco:layout_constraintHeight_percent="0.60"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:background="@color/main_edit"
+            fresco:layout_constraintLeft_toRightOf="@+id/row_view_image"
+            fresco:layout_constraintTop_toTopOf="parent"
+            fresco:layout_constraintBottom_toBottomOf="parent"
+            fresco:layout_constraintRight_toLeftOf="@+id/row_view_prod_name"
+            android:layout_marginTop="2.5dp"
+            android:layout_marginBottom="2.5dp"/>
+
+        <TextView
+            android:id="@+id/row_view_prod_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/montserrat_regular"
+            android:background="@color/grey"
+            android:textSize="20sp"
+            android:textAlignment="center"
+            android:gravity="center_horizontal"
+            android:textColor="@color/white"
+            fresco:layout_constraintHeight_percent="0.20"
+            fresco:layout_constraintWidth_percent="0.60"
+            fresco:layout_constraintEnd_toEndOf="parent"
+            fresco:layout_constraintStart_toEndOf="@+id/emp_divider"
+            fresco:layout_constraintTop_toTopOf="@+id/row_view_image" />
+
+        <TextView
+            android:id="@+id/row_view_price"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/grey"
+            android:fontFamily="@font/montserrat_regular"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textAlignment="center"
+            android:gravity="center_horizontal"
+            fresco:layout_constraintBottom_toTopOf="@+id/eo_delete"
+            fresco:layout_constraintEnd_toEndOf="parent"
+            fresco:layout_constraintStart_toEndOf="@+id/emp_divider"
+            fresco:layout_constraintHeight_percent="0.20"
+            fresco:layout_constraintTop_toBottomOf="@+id/row_view_prod_name"
+            fresco:layout_constraintWidth_percent="0.60"
+             />
+
+        <ImageButton
+            android:id="@+id/eo_delete"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/delete"
+            android:background="@color/grey"
+            android:padding="5dp"
+            fresco:layout_constraintBottom_toBottomOf="parent"
+            fresco:layout_constraintEnd_toEndOf="parent"
+            fresco:layout_constraintRight_toRightOf="parent"
+            fresco:layout_constraintStart_toEndOf="@+id/emp_divider"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</RelativeLayout>
