@@ -51,10 +51,6 @@ As this Circularity shouldn’t be limited to one industry we have created an ap
 
 
 
-## _Solution roadmap_
-
-![Roadmap](https://raw.githubusercontent.com/CodeFellas2021/GrabScrap/main/Solution%20Roadmap.jpeg)
-
 ## _Built with_
 
 - [**IBM Cloudant**](https://cloud.ibm.com/docs/appid) 
