@@ -39,7 +39,7 @@ To put it in a nutshell "Culinio" remembers and reminds the time of a meal that 
 
 ## _Organizational Login_
 When a particular organization logs into our application they need to provide the organization's email address and password. 
-They will be able to add the menu items of their cafeteria and the chef details who will be handling all the orders in their office cafeteria.
+* They will be able to add the menu items of their cafeteria and the chef details who will be handling all the orders in their office cafeteria.
  On the top right corner, the unique 4 digit code generated for this particular organization will be displayed. The code can be copied by clicking it. 
 4 categories will be available to upload the menu items. Breakfast, lunch, dinner, and beverages/snacks are the categories available. While entering the menu items they need to provide the name, price, and a short description of that item. They will also upload an image of that item. They can upload the menu items in the respective category. 
 They will also be provided an option to edit and delete the particular menu item. By clicking a particular menu item they will be redirected to a page where the option to edit and delete will be available.
