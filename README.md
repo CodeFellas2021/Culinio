@@ -81,3 +81,4 @@ The employee can turn off the notification alarm either by clicking it and he wi
 - [**_Shakthi A S_**](https://github.com/shakthi-26)
 - [**_Sowmya V_**](https://github.com/vsowmyasv)
 - [**_Harish Kumar R J_**](https://github.com/Harish-Kumar-R-J)
+- [**_Gokul R **](https://github.com/gokul2507)
