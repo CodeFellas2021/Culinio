@@ -1,0 +1,631 @@
+var SCRIPT_PROP = PropertiesService.getScriptProperties();
+
+function setup()
+{    var doc = SpreadsheetApp.getActiveSpreadsheet();
+    var ss = SpreadsheetApp.openByUrl("https://docs.google.com/spreadsheets/d/1HDAivk0PNszj7HwSm96pdsHofmj3_JPBkJ1llbJek9Y/edit?usp=sharing");
+    var ss2 = SpreadsheetApp.openByUrl("https://docs.google.com/spreadsheets/d/1HDAivk0PNszj7HwSm96pdsHofmj3_JPBkJ1llbJek9Y/edit?usp=sharing");
+
+    SCRIPT_PROP.setProperty("key", ss.getId());
+    SCRIPT_PROP.setProperty("key2", ss2.getId());}
+
+function doPost(e) {
+
+  var op = e.parameter.action;
+  
+  if(op=="insert")
+    return menu_insert(e, "Sheet2");
+    
+  if(op=="update_menu")
+    return update_menu(e);
+    
+  if(op=="delete_menu")
+    return delete_menu(e);
+    
+    
+  if(op=="add_chef")
+    return chef_insert(e);
+    
+  if(op=="ordered_dish")
+    return ordered_dish(e);
+
+  if(op=="firebaseNotification")
+  return complete(e);
+
+    if(op=="scheduled_order")
+  return scheduled_order(e);
+
+  if(op=="delete_scheduled")
+  return delete_scheduled(e);
+  
+  if(op=="delete_scheduled2")
+  return delete_scheduled2(e);
+
+  if(op=="delete_order")
+  {return delete_order(e);}
+
+    }
+
+  function delete_scheduled2(e)
+  {setup();   
+  var doc = SpreadsheetApp.openById(SCRIPT_PROP.getProperty("key2"));
+  var sheet = doc.getSheetByName("Sheet5");
+
+    var output = ContentService.createTextOutput();
+    var id = e.parameter.id;
+    var name = e.parameter.name;
+    var email = e.parameter.email;
+    var dish = e.parameter.dish;
+    var flag = 0;
+
+
+    var lr = sheet.getLastRow();
+    for (var i = 1; i <= lr; i++) {
+        var rid = sheet.getRange(i, 1).getValue();
+        var rname = sheet.getRange(i, 2).getValue();
+        var remail = sheet.getRange(i, 3).getValue();
+        var rdish = sheet.getRange(i, 4).getValue();
+        if (rid == id && name==rname && remail==email && dish==rdish) {
+            sheet.deleteRow(i);
+            var result = "value deleted successfully";
+            flag = 1;
+        }
+
+    }
+
+    if (flag == 0)
+        var result = "id not found";
+
+
+
+    result = JSON.stringify({
+        "result": result
+    });
+
+    return ContentService
+        .createTextOutput(result)
+        .setMimeType(ContentService.MimeType.JAVASCRIPT);
+  
+  }
+
+  
+  function delete_order(e)
+  {setup();   
+  var doc = SpreadsheetApp.openById(SCRIPT_PROP.getProperty("key2"));
+  var sheet = doc.getSheetByName("Sheet4");
+
+    var output = ContentService.createTextOutput();
+    var id = e.parameter.id;
+    var name = e.parameter.name;
+    var email = e.parameter.email;
+    var dish = e.parameter.dish;
+    var flag = 0;
+
+
+    var lr = sheet.getLastRow();
+    for (var i = 1; i <= lr && flag==0; i++) {
+        var rid = sheet.getRange(i, 1).getValue();
+        var rname = sheet.getRange(i, 2).getValue();
+        var remail = sheet.getRange(i, 3).getValue();
+        var rdish = sheet.getRange(i, 4).getValue();
+        if (rid == id && name==rname && dish==rdish && remail==email) {
+            sheet.deleteRow(i);
+            var result = "value deleted successfully";
+            flag = 1;
+        }
+
+    }
+
+    if (flag == 0)
+        var result = "id not found";
+
+
+
+    result = JSON.stringify({
+        "result": result
+    });
+
+    return ContentService
+        .createTextOutput(result)
+        .setMimeType(ContentService.MimeType.JAVASCRIPT);
+  
+  }
+
+function doGet(e) {
+
+  var op = e.parameter.opt;
+  
+    var ss = SpreadsheetApp.openByUrl("https://docs.google.com/spreadsheets/d/1HDAivk0PNszj7HwSm96pdsHofmj3_JPBkJ1llbJek9Y/edit?usp=sharing");
+    var sheet = ss.getSheetByName("culinio");
+    
+    var ss2 = SpreadsheetApp.openByUrl("https://docs.google.com/spreadsheets/d/1HDAivk0PNszj7HwSm96pdsHofmj3_JPBkJ1llbJek9Y/edit?usp=sharing");
+    var sheet2 = ss2.getSheetByName("Sheet2");
+
+  if(op=="register")
+    return insert_value(e, sheet);
+    
+
+
+  if(op=="delete_chef")
+  return delete_chef(e);
+
+  if(op=="readAll")
+    {sheet_name = e.parameter.sheetname;
+    return read_all_value(e, sheet, sheet_name);}
+
+
+ if(op=="menu_insert")
+ return menu_insert(e, sheet2);
+
+}
+
+function delete_scheduled(e)
+{setup();   
+  var doc = SpreadsheetApp.openById(SCRIPT_PROP.getProperty("key2"));
+  var sheet = doc.getSheetByName("Sheet5");
+
+    var output = ContentService.createTextOutput();
+    var id = e.parameter.id;
+    var name = e.parameter.name;
+    var email = e.parameter.email;
+    var dish = e.parameter.dish;
+    var hour = e.parameter.hour;
+    var minute = e.parameter.minute;
+    var flag = 0;
+
+
+    var lr = sheet.getLastRow();
+    for (var i = 1; i <= lr; i++) {
+        var rid = sheet.getRange(i, 1).getValue();
+        var rname = sheet.getRange(i, 2).getValue();
+        var remail = sheet.getRange(i, 3).getValue();
+        var rdish = sheet.getRange(i, 4).getValue();
+        var rhour = sheet.getRange(i, 8).getValue();
+        var rminute = sheet.getRange(i, 9).getValue();
+        if (rid == id && name==rname && remail==email && dish==rdish && rhour==hour && minute==rminute) {
+            sheet.deleteRow(i);
+            var result = "value deleted successfully";
+            flag = 1;
+        }
+
+    }
+
+    if (flag == 0)
+        var result = "id not found";
+
+
+
+    result = JSON.stringify({
+        "result": result
+    });
+
+    return ContentService
+        .createTextOutput(result)
+        .setMimeType(ContentService.MimeType.JAVASCRIPT);
+
+}
+
+function complete(e)
+{setup();   
+  var doc = SpreadsheetApp.openById(SCRIPT_PROP.getProperty("key2"));
+  var sheet = doc.getSheetByName("Sheet4");
+
+    var output = ContentService.createTextOutput();
+    var id = e.parameter.id;
+    var name = e.parameter.name;
+    var email = e.parameter.email;
+    var dish = e.parameter.dish;
+    var img = e.parameter.img;
+    var token = e.parameter.token;
+    var flag = 0;
+
+
+    var lr = sheet.getLastRow();
+    for (var i = 1; i <= lr && flag==0; i++) {
+        var rid = sheet.getRange(i, 1).getValue();
+        var rname = sheet.getRange(i, 2).getValue();
+        var remail = sheet.getRange(i, 3).getValue();
+        var rdish = sheet.getRange(i, 4).getValue();
+        var rimage = sheet.getRange(i, 5).getValue();
+        var rtoken = sheet.getRange(i, 6).getValue();
+        if (rid == id && name==rname && img==rimage && dish==rdish && token==rtoken && remail==email) {
+            sheet.deleteRow(i);
+            var result = "value deleted successfully";
+            flag = 1;
+        }
+
+    }
+
+    if (flag == 0)
+        var result = "id not found";
+
+
+
+    result = JSON.stringify({
+        "result": result
+    });
+
+    firebaseNotification(token);
+
+
+    return ContentService
+        .createTextOutput(result)
+        .setMimeType(ContentService.MimeType.JAVASCRIPT);
+
+
+
+}
+
+function chef_insert(e)
+{ setup();   
+  var doc = SpreadsheetApp.openById(SCRIPT_PROP.getProperty("key2"));
+  var sheet = doc.getSheetByName("Sheet3");
+ 
+  var name = e.parameter.name;
+  var email = e.parameter.email;
+  var password = e.parameter.password;
+  var id = e.parameter.id;
+//  var lr = sheet.getLastRow();
+//  var d = new Date();
+//  var currentTime = d.toLocaleString();
+ var rowData = sheet.appendRow([id, name, email, password]);
+ var result = "Insertion successful";
+ 
+     result = JSON.stringify({
+
+       "result": result
+     });
+ 
+ return ContentService
+ .createTextOutput(result)
+ .setMimeType(ContentService.MimeType.JAVASCRIPT);
+
+}
+
+
+function ordered_dish(e)
+{ setup();   
+  var doc = SpreadsheetApp.openById(SCRIPT_PROP.getProperty("key2"));
+  var sheet = doc.getSheetByName("Sheet4");
+ 
+  var name = e.parameter.name;
+  var email = e.parameter.email;
+  var dish = e.parameter.dish;
+  var id = e.parameter.id;
+  var img = e.parameter.img;
+  var token = e.parameter.token;
+  var price = e.parameter.price;
+//  var lr = sheet.getLastRow();
+//  var d = new Date();
+//  var currentTime = d.toLocaleString();
+ var rowData = sheet.appendRow([id, name, email, dish, img, token, price]);
+ var result = "Insertion successful";
+ 
+     result = JSON.stringify({
+
+       "result": result
+     });
+ 
+ return ContentService
+ .createTextOutput(result)
+ .setMimeType(ContentService.MimeType.JAVASCRIPT);
+
+}
+
+
+function delete_menu(e)
+{setup();   
+  var doc = SpreadsheetApp.openById(SCRIPT_PROP.getProperty("key2"));
+  var sheet = doc.getSheetByName("Sheet2");
+
+    var output = ContentService.createTextOutput();
+    var id = e.parameter.id;
+    var name = e.parameter.name;
+    var price = e.parameter.price;
+    var desc = e.parameter.desc;
+    var time = e.parameter.time;
+    var flag = 0;
+
+
+    var lr = sheet.getLastRow();
+    for (var i = 1; i <= lr; i++) {
+        var rid = sheet.getRange(i, 1).getValue();
+        var rname = sheet.getRange(i, 3).getValue();
+        var rtime = sheet.getRange(i, 5).getValue();
+        var rdesc = sheet.getRange(i, 4).getValue();
+        var rprice = sheet.getRange(i, 6).getValue();
+        if (rid == id && name==rname && time==rtime && desc==rdesc && price==rprice) {
+            sheet.deleteRow(i);
+            var result = "value deleted successfully";
+            flag = 1;
+        }
+
+    }
+
+    if (flag == 0)
+        var result = "id not found";
+
+
+
+    result = JSON.stringify({
+        "result": result
+    });
+
+    return ContentService
+        .createTextOutput(result)
+        .setMimeType(ContentService.MimeType.JAVASCRIPT);
+
+}
+
+function update_menu(e)
+{ setup();
+  var doc = SpreadsheetApp.openById(SCRIPT_PROP.getProperty("key2"));
+  var sheet = doc.getSheetByName("Sheet2");
+    var output = ContentService.createTextOutput();
+    var id = e.parameter.id;
+    var name = e.parameter.pname;
+    var price = e.parameter.pprice;
+    var desc = e.parameter.pdesc;
+    var img = e.parameter.pimage;
+    
+    var tname = e.parameter.tname;
+    var tprice = e.parameter.tprice;
+    var tdesc = e.parameter.tdesc;
+    var timg = e.parameter.timg;
+
+    var t_time = e.parameter.ptime;
+
+    var flag = 0;
+    var lr = sheet.getLastRow();
+  
+    for (var i = 1; i <= lr && flag == 0; i++) {
+        var rname = sheet.getRange(i, 3).getValue();
+        var rprice = sheet.getRange(i, 6).getValue();
+        var rdesc = sheet.getRange(i, 4).getValue();
+        var rid = sheet.getRange(i, 1).getValue();
+        var rimg = sheet.getRange(i, 2).getValue();
+        if (rid == id && rname == name && rprice == price && rdesc == desc) {
+            sheet.getRange(i, 1).setValue(id);
+            sheet.getRange(i, 2).setValue(timg);
+            sheet.getRange(i, 3).setValue(tname);
+            sheet.getRange(i, 4).setValue(tdesc);
+            sheet.getRange(i, 5).setValue(t_time);
+            sheet.getRange(i, 6).setValue(tprice);
+            var result = "value updated successfully";
+            flag = 1;
+        }
+    }
+    if (flag == 0)
+        var result = "id not found";
+
+    result = JSON.stringify({
+        "result": result
+    });
+
+    return ContentService
+        .createTextOutput(result)
+        .setMimeType(ContentService.MimeType.JAVASCRIPT);
+}
+
+function delete_chef(e) {
+setup();   
+  var doc = SpreadsheetApp.openById(SCRIPT_PROP.getProperty("key2"));
+  var sheet = doc.getSheetByName("Sheet3");
+
+    var output = ContentService.createTextOutput();
+    var id = e.parameter.id;
+    var name = e.parameter.name;
+    var email = e.parameter.email;
+    var password = e.parameter.password;
+
+    var flag = 0;
+
+
+    var lr = sheet.getLastRow();
+    for (var i = 1; i <= lr; i++) {
+        var rid = sheet.getRange(i, 1).getValue();
+        var rname = sheet.getRange(i, 2).getValue();
+        var remail = sheet.getRange(i, 3).getValue();
+        var rpassword = sheet.getRange(i, 4).getValue();
+        if (rid == id && name==rname && password==rpassword && email==remail) {
+            sheet.deleteRow(i);
+            var result = "value deleted successfully";
+            flag = 1;
+        }
+
+    }
+
+    if (flag == 0)
+        var result = "id not found";
+
+
+
+    result = JSON.stringify({
+        "result": result
+    });
+
+    return ContentService
+        .createTextOutput(result)
+        .setMimeType(ContentService.MimeType.JAVASCRIPT);
+
+}
+
+function menu_insert(e, sheet)
+{ setup();   
+  var doc = SpreadsheetApp.openById(SCRIPT_PROP.getProperty("key2"));
+  var sheet = doc.getSheetByName("Sheet2");
+ 
+ var id = e.parameter.id;
+ var fimage = e.parameter.fimage;
+ var fname = e.parameter.fname;
+ var fdesc = e.parameter.fdesc;
+ var ftime = e.parameter.ftime;
+ var fprice = e.parameter.fprice;
+//  var lr = sheet.getLastRow();
+//  var d = new Date();
+//  var currentTime = d.toLocaleString();
+ var rowData = sheet.appendRow([id, fimage, fname, fdesc, ftime, fprice]);
+ var result = "Insertion successful";
+ 
+     result = JSON.stringify({
+
+       "result": result
+     });
+ 
+ return ContentService
+ .createTextOutput(result)
+ .setMimeType(ContentService.MimeType.JAVASCRIPT);
+
+}
+
+
+function insert_value(e, sheet)
+{ setup();   
+  var doc = SpreadsheetApp.openById(SCRIPT_PROP.getProperty("key"));
+    var sheet = doc.getSheetByName("Sheet1");
+ 
+ var id = e.parameter.id;
+ var oname = e.parameter.oname;
+ var oemail = e.parameter.oemail;
+ var obranch = e.parameter.branch;
+ var opassword = e.parameter.password;
+ 
+//  var lr = sheet.getLastRow();
+//  var d = new Date();
+//  var currentTime = d.toLocaleString();
+ var rowData = sheet.appendRow([id, oname, obranch, oemail, opassword]);
+ var result = "Insertion successful";
+ 
+     result = JSON.stringify({
+
+       "result": result
+     });
+ 
+ return ContentService
+ .createTextOutput(result)
+ .setMimeType(ContentService.MimeType.JAVASCRIPT);
+
+}
+
+function read_all_value(request, ss, sheet_name) {
+
+    var output = ContentService.createTextOutput(),
+        data = {};
+    //Note : here sheet is sheet name , don't get confuse with other operation 
+    var sheet = sheet_name;
+
+    data.records = readData_(ss, sheet);
+
+    var callback = request.parameters.callback;
+
+    if (callback === undefined) {
+        output.setContent(JSON.stringify(data));
+    } else {
+        output.setContent(callback + "(" + JSON.stringify(data) + ")");
+    }
+    output.setMimeType(ContentService.MimeType.JAVASCRIPT);
+
+    return output;
+}
+
+function readData_(ss, sheetname, properties) {
+
+    if (typeof properties == "undefined") {
+        properties = getHeaderRow_(ss, sheetname);
+        properties = properties.map(function(p) {
+            return p.replace(/\s+/g, '_');
+        });
+    }
+
+    var rows = getDataRows_(ss, sheetname),
+        data = [];
+
+    for (var r = 0, l = rows.length; r < l; r++) {
+        var row = rows[r],
+            record = {};
+
+        for (var p in properties) {
+            record[properties[p]] = row[p];
+        }
+
+        data.push(record);
+
+    }
+    return data;
+}
+
+function getDataRows_(ss, sheetname) {
+  setup();   
+  var doc = SpreadsheetApp.openById(SCRIPT_PROP.getProperty("key"));
+    var sh = doc.getSheetByName(sheetname);
+
+    return sh.getRange(2, 1, sh.getLastRow() - 1, sh.getLastColumn()).getValues();
+}
+
+function getHeaderRow_(ss, sheetname) {
+  setup();   
+  var doc = SpreadsheetApp.openById(SCRIPT_PROP.getProperty("key"));
+    var sh = doc.getSheetByName(sheetname);
+
+    return sh.getRange(1, 1, 1, sh.getLastColumn()).getValues()[0];
+}
+
+function scheduled_order(e)
+{setup();   
+  var doc = SpreadsheetApp.openById(SCRIPT_PROP.getProperty("key2"));
+  var sheet = doc.getSheetByName("Sheet5");
+ 
+  var name = e.parameter.name;
+  var email = e.parameter.email;
+  var dish = e.parameter.dish;
+  var id = e.parameter.id;
+  var img = e.parameter.img;
+  var token = e.parameter.token;
+  var price = e.parameter.price;
+  var hour = e.parameter.hour;
+  var minute = e.parameter.minute;
+//  var lr = sheet.getLastRow();
+//  var d = new Date();
+//  var currentTime = d.toLocaleString();
+ var rowData = sheet.appendRow([id, name, email, dish, img, token, price, hour, minute]);
+ var result = "Insertion successful";
+ 
+     result = JSON.stringify({
+
+       "result": result
+     });
+ 
+ return ContentService
+ .createTextOutput(result)
+ .setMimeType(ContentService.MimeType.JAVASCRIPT);
+
+}
+
+function firebaseNotification(t) {
+  var tovar = "fs0zmY2_RLSRK3aTxec6dI:APA91bFWjFTG_uXpndRFGpuGnc9wjCxnyOWYQG_8BbVzqFjk0OFN9WJxwoQg64gR_bcw_PgXgSaWyhJNtjiXTt5dtUAEfdYNm8pCaNsr-S_DN5Q-DU7QMFdTZPSpohbelIhH4Q_ZzrB_";
+  var headers = {
+    "Authorization" :   "key=AAAA9abC5ho:APA91bGYTeJMzvynTRB5Sgw1NTuq9Ob-Nt2xDC57CQlW5veWdoBkXPzw_cCj5ljP7YsrmBxf3ZkVqNgjAEhYGcH5TIzu8cmH0MoHnou_2z1xYXuo-UxzCyDxeMzrwmH8esM7vkzLTS5J"
+  };
+
+  // Modified
+  var payload = {
+    "data": {
+      "title": "Cullinio",
+      "body": "Your food is ready!",
+    },
+    "to": t
+  };
+
+  // Modified
+  var options = {
+    method: "POST",
+    contentType: "application/json",
+    headers: headers,
+    payload: JSON.stringify(payload) // <--- Modified
+  }
+
+  var response = UrlFetchApp.fetch("https://fcm.googleapis.com/fcm/send", options);
+   
+   
+Logger.log(response)
+
+}
