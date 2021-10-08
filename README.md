@@ -16,7 +16,7 @@
   - [**_User Guide_**](#user-guide)
   - [**_Authors_**](#authors)
 
-#_Concept_
+# _Concept_
 
 ## _Introduction_
 Our application "Culinio" is a service-based application for food ordering within a company. The Corporate world is known to toil hard at work even without breaks. A meal break is supposed to be very essential for a being to keep him/her fit and healthy. But, almost every corporate worker forgets to take their meal at the right time. They don't forget to eat but are too busy to remember to take their meal. Sacrificing one’s meal isn’t a healthy way to go ahead in a corporate world. Some employees don't move from their desk just for the sake of taking their meal from the Office Cafeteria. That’s when "Culinio" comes into play.
@@ -46,21 +46,35 @@ They will also be provided an option to edit and delete the particular menu item
 They can add the chef details by clicking the button “Chef Details”. While entering the Chef details they will be providing the Chef’s name, email address, and password. They will also be able to delete a particular chef’s details.
 
 
-## _Grab Scrap_
-As this Circularity shouldn’t be limited to one industry we have created an application called GRAB SCRAP where manufacturers and consumers from varied sectors can buy & sell  recyclable waste. They can rely on us to fulfill their respective needs as we provide the gathered information from our users. Industries - Small scale businesses - individuals from varied sectors can register on our App and benefit from the plethora of opportunities to buy or sell recyclable waste. Registration is a one-time procedure where users register with their name, email address and contact number. We only provide a platform for the exchange of goods and do not operate as a middleman between the producer and the consumer, so they do not have to pay any additional fee or commission involved. The producer who desires to sell his recyclable waste will have to furnish the details like cost, address, description, image so that the buyer has a clear picture of what they  are looking to purchase. We do offer 2 add-on features that allow the seller to delete and edit the product details at any time. The buyer will be able to see all the details of the product in a one-click process that includes price, contact information, address and company name. Grab is user friendly and interactive which makes the user’s experience comfortable. In the long run this sector boosts economic growth and also increases job opportunities. For example this sector employs 12 million people in Brazil, China and the United States alone. We hope that through our application we could create a positive impact on the environment through waste recycling and reusing. 
+## _Employee Login_
+When a particular employee of a company logs into our application they need to provide his name, official email address, and the unique 4 digit code shared by the company. 
+In the “Employee” login, the menu items available in the office cafeteria are displayed according to the category. 
+For each category, the orders will be available only for a stipulated amount of time. For breakfast, the orders will be taken only from 8 a.m. to 11 a.m. Similarly, for lunch, the timing will be 12 noon to 3 p.m, dinner from 7 p.m. to 10 p.m. But for the beverages and snacks, there will be no time limit.
+The employee will be provided two options while ordering the food. Either he can schedule the meal for later or order it immediately. By clicking the “Schedule order” button he can schedule a meal for later where he/she will be asked for a time in which they wish to order their meal. And by clicking the “Place order now” button the order will be placed immediately. 
+If the employee wishes to schedule all his/her meals for the day, they can click the schedule order button in all the categories. 
+All the orders that a particular person has scheduled will be available inside the “Cup symbol” available on the main screen. In that screen, they will be provided an option to delete a particular meal if needed. 
+As already mentioned each category will be available only for a particular time. If that time limit is passed, further orders will not be taken from that category of the menu. But during the time limit of each category both the options i.e., “Schedule order” and “Place order now” will be available.
+
+## _Chef Login_
+When the Chef logs into the application he needs to provide his/her official email address, password, and the unique 4 digit code. 
+In the “Chef” login, the scheduled orders of the employees will be displayed on the screen. 
+For each order, when the chef finishes preparing the food he/she will tick the check box provided right next to the order. Once the chef ticks the order, the corresponding employee will be getting a notification along with an alarm saying that his/her “Order is ready to take”. 
+The employee can turn off the notification alarm either by clicking it and he will be redirected to a page with the “Dismiss” option. Or he can turn off the alarm by swiping it. This alarm indicates the order is readily available at the cafeteria counter.
+
 
 
 
 ## _Built with_
 
-- [**IBM Cloudant**](https://cloud.ibm.com/docs/appid) 
 - [**Android Studio**](https://developer.android.com/docs) 
 - [**Google Sheets API**](https://developers.google.com/sheets/api/quickstart/apps-script) 
 - [**App Script**](https://developers.google.com/apps-script/reference/document) 
+- [**Google Firebase Cloud Messaging**](https://firebase.google.com/docs/engage) 
+
 
 ## _User Guide_
 
-![User_Guide](https://github.com/CodeFellas2021/GrabScrap/blob/main/User%20Guide.pdf)
+![User_Guide](https://github.com/CodeFellas2021/Culinio/blob/master/User%20Manual.pdf)
 
 ## _Authors_
 
