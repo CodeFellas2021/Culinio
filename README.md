@@ -43,7 +43,7 @@ When a particular organization logs into our application they need to provide th
  On the top right corner, the unique 4 digit code generated for this particular organization will be displayed. The code can be copied by clicking it. 
 * 4 categories will be available to upload the menu items. Breakfast, lunch, dinner, and beverages/snacks are the categories available. While entering the menu items they need to provide the name, price, and a short description of that item. They will also upload an image of that item. They can upload the menu items in the respective category. 
 * They will also be provided an option to edit and delete the particular menu item. By clicking a particular menu item they will be redirected to a page where the option to edit and delete will be available.
-* They can add the chef details by clicking the button “Chef Details”. While entering the Chef details they will be providing the Chef’s name, email address, and password. They will also be able to delete a particular chef’s details.
+* They can add the chef details by clicking the button “Chef Details”. While entering the Chef details they will be providing the Chef’s name, email address, and password. They will also be able to delete a particular chef’s details. 
 
 
 ## _Employee Login_
